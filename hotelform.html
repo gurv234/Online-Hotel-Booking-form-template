@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Hotel Booking</title>
+    <link rel="stylesheet" type="text/css" href="basic.css">
+    <script type="text/javascript">
+    function fnameValid(){
+    var fname = document.getElementById("firstName").value;
+    var re1 = /^[a-zA-Z\s\'\-]{2,15}$/;
+    if(!re1.test(fname)){
+        document.getElementById("fnameErr").style.color = "red";
+        document.getElementById("fnameErr") .innerHTML = "Enter 2-15 characters"; 
+        return false;
+    }
+
+    else{
+        document.getElementById("fnameErr").style.color = "green";
+        document.getElementById("fnameErr") .innerHTML = "Valid"; 
+        return true;
+    }
+}
+function lnameValid(){
+    var lname = document.getElementById("lastName").value;
+    var re2 = /^[a-zA-Z\s\'\-]{2,15}$/;
+    if(!re2.test(lname)){
+        document.getElementById("lnameErr").style.color = "red";
+        document.getElementById("lnameErr") .innerHTML = "Enter 2-15 characters"; 
+        return false;
+    }
+    else{
+        document.getElementById("lnameErr").style.color = "green";
+        document.getElementById("lnameErr") .innerHTML = "Valid"; 
+        return true;
+    }
+}
+function phoneValid(){
+    var no = document.getElementById("phone").value;
+    var de = /^\d{3}-\d{3}-\d{4}$/;
+    if(de.test(no)){
+        document.getElementById("phoneErr").style.color = "green";
+        document.getElementById("phoneErr").innerHTML = "Valid format";
+        return true;
+    }
+    else{
+        document.getElementById("phoneErr").style.color = "Red";
+        document.getElementById("phoneErr").innerHTML = "Number must be in xxx-xxx-xxxx format";
+        return false;
+    }
+}
+function couponValid(){
+    var code = "CN1234";
+    var coup = document.getElementById("coupon").value;
+    if(code == coup){
+        document.getElementById("couponCheck").style.color = "green";
+        document.getElementById("couponCheck").innerHTML = "Your discount coupon has been applied";
+        return true;
+    }
+    else{
+        document.getElementById("couponCheck").style.color = "red";
+        document.getElementById("couponCheck").innerHTML = "Invalid code";
+        return false;
+    }
+}
+function bookRoom(){
+    var coup = document.getElementById("coupon").value;
+    document.getElementById("final").innerHTML = "<h2>Your room has been reserved!</h2>";
+    if(coup == "CN1234"){
+        document.getElementById("final").innerHTML += "20% discount has been applied to your final bill.";
+    }
+}</script>
+</head>
+
+<body>
+    <div class="super">
+        Welcome to WebDev Hotel
+        <div class="button" onclick="alert('Your coupon code is: CN1234')">Claim your Coupon</div>
+    </div>
+    <fieldset class="tariff">
+        <legend>Tariff:</legend>
+        <table id="ratecard">
+            <tr><td class="room"><strong>Room Type</strong></td><td class="rate"><strong>Charges/night</strong></td><td class="info"><strong>Information</strong></td></tr>
+            <tr><td class="room">Single Room</td><td class="rate">$150</td><td class="info">Accomodates one person</td></tr>
+            <tr><td class="room">Double Room</td><td class="rate">$250</td><td class="info">Accomodates two persons</td></tr>
+            <tr><td class="room">King-Sized Room</td><td class="rate">$400</td><td class="info">Accomodates four persons</td></tr>
+            <tr><td class="room">Suite</td><td class="rate">$800</td><td class="info">Accomodates six persons</td></tr>
+        </table>
+    </fieldset>
+    <form>
+        <fieldset class="booking">
+            <legend>Book a Room:</legend>
+                First Name: <input type="text" name="firstName" id="firstName" onblur="fnameValid();" ><span id="fnameErr"></span><br>
+                Last Name:  <input type="text" name="lastName" id="lastName" onblur="lnameValid();"><span id="lnameErr"></span><br>
+                Phone Number: <input type="text" name="phone" id="phone" onblur="phoneValid();"> <span id="phoneErr">xxx-xxx-xxxx</span><br>
+                Enter number of guests:<br>
+                    Adults: <input type="number" min="1" max="4">
+                    Children: <input type="number" min="0" max="4"><br>
+                Room type: <input list="roomtype"> <datalist id="roomtype">
+                    <option value="Single" id="roomtype"></option>
+                    <option value="Double" id="roomtype"></option>
+                    <option value="King" id="roomtype"></option> 
+                    <option value="Suite" id="roomtype"></option>
+                </datalist><br>
+                Check-In: <input type="date"> Check-Out: <input type="date"><br>
+                Airport pickup/drop-off: <input type="radio" name="airport" value="Yes">YES <input type="radio" name="airport" value="No">NO<br>
+                Any special requests/requirements:<br>
+                <textarea name="message" rows="5" columns="5"></textarea><br>
+                
+                Enter your coupon code: <input type="text" name="coupon" id="coupon" onblur="couponValid();"> <span id="couponCheck"></span><br>
+                <input type="button" id="Reserve" name="Reserve" value="Make reservation" onclick="bookRoom();">
+        </fieldset>
+     </form>
+    <p id="final"></p>
+
+</body>
+</html>
