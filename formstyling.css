@@ -1,0 +1,63 @@
+
+body{
+    /*use for header: background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/ShIZkZR4Zj4uxbdal/videoblocks-lobby-hotel-blurred-background_bn-fsihsf_thumbnail-full01.png");*/
+    background-color: bisque;
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 20px;
+}
+div.super{
+    
+    background-image: url("https://ak7.picdn.net/shutterstock/videos/21555397/thumb/1.jpg");
+    background-size: cover;
+    padding: 225px 0;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 95px;
+    color: white;
+    width: 100%;
+    
+    background-position: center; 
+    text-align: center;
+
+}
+div.button{
+    position: absolute;
+    bottom: 450px;
+    font-size: 25px;
+    margin-left: 40%;
+    border: solid;
+}
+table{
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+td{
+    vertical-align: top;
+    padding: 10px;
+    word-wrap: break-word;
+}
+.room{
+    text-align: left;
+}
+.rate{
+    text-align: left;
+}
+.info{
+    text-align: left;
+    color: gray;
+}
+fieldset.booking{
+    margin-top: -277px;
+    width: 550px;
+    border-color: brown;
+}
+fieldset.tariff{
+    margin-left: 650px;
+    border-color: brown;
+}
+
+legend{
+    font-size: 30px;
+}
